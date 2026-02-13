@@ -12,8 +12,6 @@ const t = useTranslations(lang);
 const members = [
   { name: t('team.member1.name'), role: t('team.member1.role'), img: '/images/team/member-1.jpg' },
   { name: t('team.member2.name'), role: t('team.member2.role'), img: '/images/team/member-2.jpg' },
-  { name: t('team.member3.name'), role: t('team.member3.role'), img: '/images/team/member-3.jpg' },
-  { name: t('team.member4.name'), role: t('team.member4.role'), img: '/images/team/member-4.jpg' },
 ];
 ---
 
@@ -28,7 +26,7 @@ const members = [
       </h2>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8" data-animate-stagger>
+    <div class="grid sm:grid-cols-2 max-w-2xl mx-auto gap-8" data-animate-stagger>
       {members.map((member) => (
         <div data-animate class="group text-center">
           <div class="aspect-[3/4] bg-teal-light overflow-hidden mb-4">

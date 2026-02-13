@@ -55,14 +55,10 @@ export const ui = {
     // Team
     'team.label': 'The People',
     'team.title': 'Our Team',
-    'team.member1.name': 'Ali Reza Yahya',
-    'team.member1.role': 'Founder & Creative Director',
-    'team.member2.name': 'Sarah Chen',
-    'team.member2.role': 'Brand Strategist',
-    'team.member3.name': 'Marco Visconti',
-    'team.member3.role': 'Visual Designer',
-    'team.member4.name': 'Rina Wijaya',
-    'team.member4.role': 'Content Producer',
+    'team.member1.name': 'Freda',
+    'team.member1.role': 'Co-Founder',
+    'team.member2.name': 'Talitha',
+    'team.member2.role': 'Co-Founder',
 
     // Contact
     'contact.label': 'Get in Touch',
@@ -122,14 +118,10 @@ export const ui = {
     // Team
     'team.label': 'Tim Kami',
     'team.title': 'Tim Kami',
-    'team.member1.name': 'Ali Reza Yahya',
-    'team.member1.role': 'Pendiri & Direktur Kreatif',
-    'team.member2.name': 'Sarah Chen',
-    'team.member2.role': 'Ahli Strategi Brand',
-    'team.member3.name': 'Marco Visconti',
-    'team.member3.role': 'Desainer Visual',
-    'team.member4.name': 'Rina Wijaya',
-    'team.member4.role': 'Produser Konten',
+    'team.member1.name': 'Freda',
+    'team.member1.role': 'Co-Founder',
+    'team.member2.name': 'Talitha',
+    'team.member2.role': 'Co-Founder',
 
     // Contact
     'contact.label': 'Hubungi Kami',

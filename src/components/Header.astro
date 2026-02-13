@@ -1,0 +1,112 @@
+---
+import LanguagePicker from './LanguagePicker.astro';
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const navItems = [
+  { label: t('nav.about'), href: '#about' },
+  { label: t('nav.services'), href: '#services' },
+  { label: t('nav.portfolio'), href: '#portfolio' },
+  { label: t('nav.team'), href: '#team' },
+  { label: t('nav.contact'), href: '#contact' },
+];
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#" class="font-heading text-xl font-semibold text-cream tracking-wide">
+      Melting Pot Lab
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-8">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="text-sm text-cream/70 hover:text-gold transition-colors tracking-wide uppercase"
+        >
+          {item.label}
+        </a>
+      ))}
+      <LanguagePicker lang={lang} />
+    </nav>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Toggle menu"
+    >
+      <span class="block w-6 h-px bg-cream transition-all duration-300"></span>
+      <span class="block w-6 h-px bg-cream transition-all duration-300"></span>
+      <span class="block w-4 h-px bg-cream transition-all duration-300 ml-auto"></span>
+    </button>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav
+    id="mobile-menu"
+    class="md:hidden hidden flex-col items-center gap-6 pb-8 bg-teal/95 backdrop-blur-md"
+  >
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class="text-sm text-cream/70 hover:text-gold transition-colors tracking-wide uppercase mobile-nav-link"
+      >
+        {item.label}
+      </a>
+    ))}
+    <LanguagePicker lang={lang} />
+  </nav>
+</header>
+
+<script>
+  const header = document.getElementById('site-header')!;
+  const btn = document.getElementById('mobile-menu-btn')!;
+  const menu = document.getElementById('mobile-menu')!;
+  let isOpen = false;
+
+  // Sticky header background on scroll
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('bg-teal/95', 'backdrop-blur-md');
+    } else if (!isOpen) {
+      header.classList.remove('bg-teal/95', 'backdrop-blur-md');
+    }
+  });
+
+  // Mobile toggle
+  btn.addEventListener('click', () => {
+    isOpen = !isOpen;
+    menu.classList.toggle('hidden');
+    menu.classList.toggle('flex');
+    if (isOpen) {
+      header.classList.add('bg-teal/95', 'backdrop-blur-md');
+    } else if (window.scrollY <= 50) {
+      header.classList.remove('bg-teal/95', 'backdrop-blur-md');
+    }
+  });
+
+  // Close on nav link click
+  menu.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      isOpen = false;
+      menu.classList.add('hidden');
+      menu.classList.remove('flex');
+      if (window.scrollY <= 50) {
+        header.classList.remove('bg-teal/95', 'backdrop-blur-md');
+      }
+    });
+  });
+</script>

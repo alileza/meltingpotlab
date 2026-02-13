@@ -1,0 +1,49 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const services = [
+  { title: t('services.creative.title'), desc: t('services.creative.desc'), icon: '01' },
+  { title: t('services.identity.title'), desc: t('services.identity.desc'), icon: '02' },
+  { title: t('services.content.title'), desc: t('services.content.desc'), icon: '03' },
+  { title: t('services.tone.title'), desc: t('services.tone.desc'), icon: '04' },
+  { title: t('services.strategy.title'), desc: t('services.strategy.desc'), icon: '05' },
+];
+---
+
+<section id="services" class="py-24 md:py-32 bg-teal-light/30">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="text-center mb-16">
+      <p data-animate class="text-gold/80 text-sm tracking-[0.3em] uppercase mb-4">
+        {t('services.label')}
+      </p>
+      <h2 data-animate class="font-heading text-3xl md:text-4xl lg:text-5xl text-cream font-semibold">
+        {t('services.title')}
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" data-animate-stagger>
+      {services.map((service) => (
+        <div
+          data-animate
+          class="group border border-cream/10 p-8 hover:border-gold/30 transition-all duration-300 bg-teal/40"
+        >
+          <span class="text-gold/40 font-heading text-3xl block mb-4">{service.icon}</span>
+          <h3 class="font-heading text-xl text-cream font-medium mb-3 group-hover:text-gold transition-colors">
+            {service.title}
+          </h3>
+          <p class="text-cream/50 text-sm leading-relaxed">
+            {service.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

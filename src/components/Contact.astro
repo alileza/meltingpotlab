@@ -1,0 +1,37 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="contact" class="py-24 md:py-32">
+  <div class="mx-auto max-w-3xl px-6 text-center">
+    <p data-animate class="text-gold/80 text-sm tracking-[0.3em] uppercase mb-4">
+      {t('contact.label')}
+    </p>
+    <h2 data-animate class="font-heading text-3xl md:text-4xl lg:text-5xl text-cream font-semibold mb-6">
+      {t('contact.title')}
+    </h2>
+    <p data-animate class="text-cream/60 leading-relaxed mb-12 max-w-xl mx-auto">
+      {t('contact.desc')}
+    </p>
+
+    <a
+      data-animate
+      href={`mailto:${t('contact.email')}`}
+      class="inline-block bg-gold/90 hover:bg-gold text-teal px-10 py-4 text-sm tracking-widest uppercase font-medium transition-all duration-300"
+    >
+      {t('contact.cta')}
+    </a>
+
+    <p data-animate class="text-cream/30 text-sm mt-8">
+      {t('contact.email')}
+    </p>
+  </div>
+</section>

@@ -1,0 +1,56 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="relative min-h-screen flex items-center justify-center texture-overlay overflow-hidden">
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-b from-teal via-teal-light/50 to-teal"></div>
+
+  <!-- Decorative accent line -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-transparent to-gold/30"></div>
+
+  <div class="relative z-10 mx-auto max-w-4xl px-6 text-center">
+    <p
+      data-animate
+      class="text-gold/80 text-sm tracking-[0.3em] uppercase mb-6"
+    >
+      Melting Pot Lab
+    </p>
+
+    <h1
+      data-animate
+      class="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-cream leading-[1.1] mb-8"
+    >
+      {t('hero.tagline')}
+    </h1>
+
+    <p
+      data-animate
+      class="text-cream/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12"
+    >
+      {t('hero.subtitle')}
+    </p>
+
+    <a
+      data-animate
+      href="#portfolio"
+      class="inline-block border border-gold/40 text-gold hover:bg-gold/10 px-8 py-3 text-sm tracking-widest uppercase transition-all duration-300"
+    >
+      {t('hero.cta')}
+    </a>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+    <span class="text-cream/30 text-xs tracking-widest uppercase">{t('hero.scroll')}</span>
+    <div class="w-px h-8 bg-gradient-to-b from-cream/30 to-transparent animate-pulse"></div>
+  </div>
+</section>

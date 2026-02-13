@@ -1,0 +1,46 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<footer class="border-t border-cream/10 py-12">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <p class="font-heading text-lg text-cream">{t('footer.tagline')}</p>
+        <p class="text-sm text-cream/40 mt-1">{t('footer.copyright')}</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a
+          href="https://instagram.com/meltingpotlab"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-cream/40 hover:text-gold transition-colors text-sm"
+        >
+          Instagram
+        </a>
+        <a
+          href="https://linkedin.com/company/meltingpotlab"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-cream/40 hover:text-gold transition-colors text-sm"
+        >
+          LinkedIn
+        </a>
+        <a
+          href="mailto:hello@meltingpotlab.com"
+          class="text-cream/40 hover:text-gold transition-colors text-sm"
+        >
+          Email
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
